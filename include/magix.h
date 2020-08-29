@@ -1,6 +1,7 @@
 #pragma once
 
 #include <magic.h>
+#include <span>
 #include <stdexcept>
 #include <string>
 
@@ -13,7 +14,8 @@ namespace magix {
         magic(int flags);
         ~magic();
 
-        std::string file(const std::string& filename);
+        auto buffer(std::span<const std::byte> buffer) -> std::string;
+        auto file(const std::string& filename) -> std::string;
     };
 
     struct magic_error : std::runtime_error {
