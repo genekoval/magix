@@ -1,4 +1,4 @@
-#include <magix.h>
+#include <magix/magix.h>
 
 namespace magix {
     magic::magic(int flags) : cookie(magic_open(flags)) {
