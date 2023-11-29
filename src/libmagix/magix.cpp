@@ -13,11 +13,8 @@ namespace magix {
     }
 
     auto magic::buffer(std::span<const std::byte> buffer) -> std::string {
-        const auto* description = magic_buffer(
-            cookie,
-            buffer.data(),
-            buffer.size()
-        );
+        const auto* description =
+            magic_buffer(cookie, buffer.data(), buffer.size());
 
         if (description == nullptr) error();
         return description;
@@ -30,6 +27,5 @@ namespace magix {
     }
 
     magic_error::magic_error(const std::string& what_arg) :
-        std::runtime_error(what_arg)
-    {}
+        std::runtime_error(what_arg) {}
 }
